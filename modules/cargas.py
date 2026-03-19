@@ -188,7 +188,7 @@ def show_cargas():
     if not df_post_f.empty:
         # 1. Calcular Carga TOTAL por JUGADOR para cada día (suma de sesiones AM + PM)
         #    También calculamos el RPE promedio del jugador en ese día
-        df_player_day = df_post_f.groupby(["Fecha", "Nombre jugador"]).agg(
+        df_player_day = df_post_f.groupby(["Fecha", "Rut"]).agg(
             daily_load=("CargaSesion", "sum"),
             daily_rpe=("RPE", "mean")
         ).reset_index()
